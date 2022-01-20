@@ -11,7 +11,7 @@ public final class CommandSerializer extends AbstractSerializer {
     private CommandSerializer() {
         super();
     }
-    
+
     public static synchronized CommandSerializer instance() {
         if (CommandSerializer.commandSerializer == null) {
             CommandSerializer.commandSerializer = new CommandSerializer();
@@ -19,7 +19,7 @@ public final class CommandSerializer extends AbstractSerializer {
         return CommandSerializer.commandSerializer;
     }
 
-    
+
     public <T extends Command> T deserialize(String aSerialization, final Class<?> aType) {
         return gson.fromJson(aSerialization, (Type) aType);
     }

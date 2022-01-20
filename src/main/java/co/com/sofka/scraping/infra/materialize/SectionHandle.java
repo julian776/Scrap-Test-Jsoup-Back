@@ -38,18 +38,18 @@ public class SectionHandle {
         BasicDBObject document = new BasicDBObject();
 
         var key = "movies." + event.getTittle();
-        document.put(key+".id", event.getMovieId());
-        document.put(key+".name", event.getTittle());
-        document.put(key+".url_image", event.getImage());
-        document.put(key+".url_video", event.getUrl());
+        document.put(key + ".id", event.getMovieId());
+        document.put(key + ".name", event.getTittle());
+        document.put(key + ".url_image", event.getImage());
+        document.put(key + ".url_video", event.getUrl());
 
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", document);
 
         mongoClient.getDatabase("queries")
                 .getCollection("section")
-                .updateOne( Filters.eq("_id", event.getAggregateId()), updateObject);
+                .updateOne(Filters.eq("_id", event.getAggregateId()), updateObject);
     }
-    
+
 
 }

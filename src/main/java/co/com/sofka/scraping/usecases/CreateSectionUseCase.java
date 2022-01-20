@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.function.Function;
 
 @Dependent
-public class CreateSectionUseCase  implements Function<CreateSectionCommand, List<DomainEvent>> {
+public class CreateSectionUseCase implements Function<CreateSectionCommand, List<DomainEvent>> {
     @Override
     public List<DomainEvent> apply(CreateSectionCommand command) {
         var section = new Section(command.getSectionId(), command.getName());

@@ -4,6 +4,7 @@ import co.com.sofka.scraping.infra.generic.DeserializeException;
 import co.com.sofka.scraping.infra.generic.EventSerializer;
 import co.com.sofka.scraping.infra.generic.StoredEventSerializer;
 import com.google.gson.Gson;
+
 import java.util.Date;
 
 public final class StoredEvent {

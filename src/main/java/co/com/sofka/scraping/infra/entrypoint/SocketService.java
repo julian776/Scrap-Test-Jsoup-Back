@@ -1,9 +1,8 @@
 package co.com.sofka.scraping.infra.entrypoint;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Consumer;
+import co.com.sofka.scraping.domain.generic.DomainEvent;
+import co.com.sofka.scraping.infra.generic.EventSerializer;
+import org.jboss.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.websocket.OnClose;
@@ -12,10 +11,9 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
-
-import co.com.sofka.scraping.domain.generic.DomainEvent;
-import co.com.sofka.scraping.infra.generic.EventSerializer;
-import org.jboss.logging.Logger;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @ServerEndpoint("/retrieve/{correlationId}")
 @ApplicationScoped
@@ -43,9 +41,9 @@ public class SocketService {
         LOG.error("onError", throwable);
     }
 
-    public void send(String correlationId, DomainEvent event){
+    public void send(String correlationId, DomainEvent event) {
         var message = EventSerializer.instance().serialize(event);
-        if(sessions.containsKey(correlationId)){
+        if (sessions.containsKey(correlationId)) {
             sessions.get(correlationId).values()
                     .forEach(session -> session.getAsyncRemote().sendObject(message));
         }

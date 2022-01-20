@@ -19,19 +19,19 @@ public class Section extends AggregateRoot {
         appendChange(new SectionCreated(name)).apply();
     }
 
-    private Section(String id){
+    private Section(String id) {
         super(id);
         subscribe(new SectionEventChange(this));
     }
 
-    public static Section from(String id, List<DomainEvent> events){
+    public static Section from(String id, List<DomainEvent> events) {
         var section = new Section(id);
         events.forEach(section::applyEvent);
         return section;
     }
 
-    public void addMovie(String id, String url, String tittle, String image){
-        appendChange(new MovieAdded(id,tittle, url, image)).apply();
+    public void addMovie(String id, String url, String tittle, String image) {
+        appendChange(new MovieAdded(id, tittle, url, image)).apply();
     }
 
     public Set<Movie> movies() {

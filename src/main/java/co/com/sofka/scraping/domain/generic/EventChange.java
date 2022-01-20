@@ -10,7 +10,7 @@ public interface EventChange {
     /**
      * The Behaviors.
      */
-     Set<Consumer<? super DomainEvent>> behaviors = new HashSet<>();
+    Set<Consumer<? super DomainEvent>> behaviors = new HashSet<>();
 
     /**
      * Apply.
