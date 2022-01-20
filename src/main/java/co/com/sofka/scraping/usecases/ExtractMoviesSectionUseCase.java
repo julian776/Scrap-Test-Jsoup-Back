@@ -36,13 +36,15 @@ public class ExtractMoviesSectionUseCase implements Function<AddMovieCommand, Li
         );
         try {
             Document doc = Jsoup.connect(command.getUrl()).get();
-            for (Element e : doc.select("ul.MovieList.Rows.AX.A06.B04.C03.E20 li")) {
+
+            doc.select("ul.MovieList.Rows.AX.A06.B04.C03.E20 li").stream().forEach(e -> {
                 String tittle = e.select("h2.Title").text();
                 String url = getValuableLink(e.selectFirst("a").attributes().get("href"));
                 String image = e.select("img[src][data-src]").attr("data-src");
 
                 section.addMovie(UUID.randomUUID().toString(), tittle, url, image);
-            }
+            });
+
             return section.getUncommittedChanges();
         } catch (IOException e) {
             throw new RuntimeException();
