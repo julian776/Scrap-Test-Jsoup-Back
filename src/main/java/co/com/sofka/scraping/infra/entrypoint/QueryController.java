@@ -32,4 +32,15 @@ public class QueryController {
                 .forEach(documentList::add);
         return Response.ok(documentList).build();
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/sections")
+    public Response getSections(){
+        List<String> sections = new ArrayList<>();
+        mongoClient.getDatabase("queries")
+                .getCollection("section")
+                .find().forEach(document -> sections.add(document.get("_id").toString()));
+        return Response.ok(sections).build();
+    }
 }
