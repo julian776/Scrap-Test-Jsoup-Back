@@ -2,24 +2,18 @@ package co.com.sofka.scraping.domain.section;
 
 import java.util.Objects;
 
-public final class Course {
+public final class Movie {
 
     private final String id;
     private String tittle;
+    private String image;
     private final String url;
-    private final String tutor;
-    private final String price;
 
-    public Course(String id, String url, String tutor, String price, String tittle) {
+    public Movie(String id, String url, String tittle, String image) {
         this.id = Objects.requireNonNull(id);
         this.url = Objects.requireNonNull(url);
-        this.tutor = Objects.requireNonNull(tutor);
-        this.price = Objects.requireNonNull(price);
         this.tittle = Objects.requireNonNull(tittle);
-    }
-
-    public void updateTittle(String tittle) {
-        this.tittle = Objects.requireNonNull(tittle);
+        this.image = image;
     }
 
     public String id() {
@@ -30,24 +24,20 @@ public final class Course {
         return url;
     }
 
-    public String tutor() {
-        return tutor;
-    }
-
-    public String price() {
-        return price;
-    }
-
     public String tittle() {
         return tittle;
+    }
+
+    public String image() {
+        return image;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(id, course.id) && Objects.equals(url, course.url) && Objects.equals(tutor, course.tutor) && Objects.equals(price, course.price);
+        Movie movie = (Movie) o;
+        return Objects.equals(id, movie.id) && Objects.equals(tittle, movie.tittle) && Objects.equals(image, movie.image) && Objects.equals(url, movie.url);
     }
 
     @Override

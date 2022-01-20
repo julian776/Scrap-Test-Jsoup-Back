@@ -2,16 +2,14 @@ package co.com.sofka.scraping.domain.section.command;
 
 import co.com.sofka.scraping.domain.generic.Command;
 
-public class AddCourseCommand extends Command {
+public class AddMovieCommand extends Command {
 
     private String sectionId;
-    private String courseId;
+    private String movieId;
     private String url;
-    private String tutor;
-    private String price;
     private String tittle;
 
-    public AddCourseCommand() {
+    public AddMovieCommand() {
     }
 
     public String getSectionId() {
@@ -19,15 +17,15 @@ public class AddCourseCommand extends Command {
     }
 
     public void setSectionId(String sectionId) {
-        sectionId = sectionId;
+        this.sectionId = sectionId;
     }
 
-    public String getCourseId() {
-        return courseId;
+    public String getMovieId() {
+        return movieId;
     }
 
-    public void setCourseId(String courseId) {
-        courseId = courseId;
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
     }
 
     public String getUrl() {
@@ -38,22 +36,6 @@ public class AddCourseCommand extends Command {
         this.url = url;
     }
 
-    public String getTutor() {
-        return tutor;
-    }
-
-    public void setTutor(String tutor) {
-        this.tutor = tutor;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getTittle() {
         return tittle;
     }
@@ -61,4 +43,6 @@ public class AddCourseCommand extends Command {
     public void setTittle(String tittle) {
         this.tittle = tittle;
     }
+
+
 }

@@ -2,20 +2,18 @@ package co.com.sofka.scraping.domain.section;
 
 import co.com.sofka.scraping.domain.generic.AggregateRoot;
 import co.com.sofka.scraping.domain.generic.DomainEvent;
-import co.com.sofka.scraping.domain.section.event.CourseAdded;
+import co.com.sofka.scraping.domain.section.event.MovieAdded;
 import co.com.sofka.scraping.domain.section.event.SectionCreated;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.Set;
 
 public class Section extends AggregateRoot {
 
-    protected Map<String, Course> courses;
+    protected Set<Movie> movies;
     protected String name;
 
-    protected Section(String sectionId, String name) {
+    public Section(String sectionId, String name) {
         super(sectionId);
         subscribe(new SectionEventChange(this));
         appendChange(new SectionCreated(name)).apply();
@@ -32,12 +30,12 @@ public class Section extends AggregateRoot {
         return section;
     }
 
-    public void addCourse(String id, String url, String tutor, String price, String tittle){
-        appendChange(new CourseAdded(id,url,tutor, price, tittle)).apply();
+    public void addMovie(String id, String url, String tittle, String image){
+        appendChange(new MovieAdded(id,tittle, url, image)).apply();
     }
 
-    public Map<String, Course> courses() {
-        return courses;
+    public Set<Movie> movies() {
+        return movies;
     }
 
     public String name() {
