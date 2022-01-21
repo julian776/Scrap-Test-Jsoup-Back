@@ -15,8 +15,6 @@ x
 Hsrc/main/java/co/com/sofka/scraping/infra/generic/CommandSerializer.java,0\a\0afc448985f4e590c2a5b83d9a22d2b2693e9a23
 s
 Csrc/main/java/co/com/sofka/scraping/domain/generic/StoredEvent.java,6\f\6f40109b81a821d7c35354285de851b344d65648
-q
-Asrc/main/java/co/com/sofka/scraping/infra/message/BusService.java,9\d\9dcc6d78870c9dc5ab3f15d8fceb9eb5af8db83d
 o
 ?src/main/java/co/com/sofka/scraping/domain/generic/Command.java,7\d\7d6ed32d67116a7e547e5064bbf8afbe141cf659
 v
@@ -25,5 +23,7 @@ z
 Jsrc/main/java/co/com/sofka/scraping/domain/section/SectionEventChange.java,7\f\7f846a130886682455eb39f2d1e7046a277eebf5
 q
 Asrc/main/java/co/com/sofka/scraping/infra/model/DataResponse.java,9\c\9c0c12b863034e835a4b27e8d0cc9d9500de0a24
-{
-Ksrc/main/java/co/com/sofka/scraping/infra/handle/AddMovieUseCaseHandle.java,2\9\29ef9f08c9a76ece82a92f26ac75aeab010bdb75
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+V
+&src/test/java/testQueryController.java,f\8\f8853a3dccc4efeb7f2682552828642f38a4456b
